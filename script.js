@@ -9,11 +9,14 @@ function callbackForEach(element) {
 }
 
 function forEach(array, callback) {
-  //sua lógica aqui
+  for (let i = 0; i < array.length; i++){
+    callback(array[i])
+  }
+  return arrayVazio
 }
 
-// console.log(forEach(arrayForEach, callbackForEach));
-// console.log(arrayVazio);
+console.log(forEach(arrayForEach, callbackForEach));
+console.log(arrayVazio);
 
 //Método Find --------
 
@@ -34,10 +37,14 @@ function callbackFindTwo(element) {
 }
 
 function find(array, callback) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++){
+    if (callback(array[i]) == true){
+      return array[i]
+    }
+  }
 }
-// console.log(find(arrayFind, callbackFind));
-// console.log(find(arrayFind, callbackFindTwo));
+console.log(find(arrayFind, callbackFind));
+console.log(find(arrayFind, callbackFindTwo));
 
 //Método IndexOf --------
 
@@ -54,10 +61,14 @@ function callbackFindIndexTwo(element) {
 }
 
 function FindIndex(array, callback) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++){
+    if(callback(array[i]) == true){
+      return i
+    }
+  }
 }
-// console.log(FindIndex(arrayFindIndex, callbackFindIndex));
-// console.log(FindIndex(arrayFindIndex, callbackFindIndexTwo));
+ console.log(FindIndex(arrayFindIndex, callbackFindIndex));
+ console.log(FindIndex(arrayFindIndex, callbackFindIndexTwo));
 
 //Método Includes --------
 
