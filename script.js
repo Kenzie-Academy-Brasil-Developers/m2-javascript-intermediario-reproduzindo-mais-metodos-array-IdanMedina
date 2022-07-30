@@ -66,6 +66,7 @@ function FindIndex(array, callback) {
       return i
     }
   }
+  return -1
 }
  console.log(FindIndex(arrayFindIndex, callbackFindIndex));
  console.log(FindIndex(arrayFindIndex, callbackFindIndexTwo));
@@ -75,11 +76,16 @@ function FindIndex(array, callback) {
 const arrayIncludes = [53, 2, "duck", NaN, 456, 7]; // array para iteração do método
 
 function includes(array, searchElement) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++){
+    if(array[i] == searchElement){
+      return true
+    }
+  }
+  return false
 }
 
-// console.log(includes(arrayIncludes, "duck"));
-// console.log(includes(arrayIncludes, 500));
+ console.log(includes(arrayIncludes, "duck"));
+ console.log(includes(arrayIncludes, 500));
 
 //Método some --------
 const arrySome = [12, 82, 563, 414, null]; // array para iteração do método
@@ -94,20 +100,31 @@ const callbackSome2 = (element) => {
 };
 
 function some(array, callback) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++){
+    callback(array[i], i, array)
+    if (callback(array[i], i, array) == true){
+      return true
+    }
 }
-
-// console.log(some(arrySome, callbackSome));
-// console.log(some(arrySome, callbackSome2));
+return false
+}
+ console.log(some(arrySome, callbackSome));
+ console.log(some(arrySome, callbackSome2));
 
 //Método Join --------
 
 const arrayJoin = ["Fogo", "no", "Parquinho"]; // array para iteração do método
-
 function join(array, value) {
-  //sua lógica aqui
+  let string = ""
+  for(let i = 0; i < array.length; i++){
+    if (i == array.length-1){
+      string += array[i]
+      return string
+    }
+  string += array[i]
+  string += value
+  }
 }
-
-// console.log(join(arrayJoin, " "));
-// console.log(join(arrayJoin, ""));
-// console.log(join(arrayJoin, "-"));
+ console.log(join(arrayJoin, " "));
+ console.log(join(arrayJoin, ""));
+ console.log(join(arrayJoin, "-"));
